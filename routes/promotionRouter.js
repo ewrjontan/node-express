@@ -28,17 +28,17 @@ promotionRouter.route('/:promotionId')
         next();
     })
     .get((req, res) => {
-        res.end('Will send only promotion with specified ID to you');
+        res.end(`Will send only promotion with Id ${req.params.promotionId}`);
     })
     .post((req, res) => {
-        res.end(`Will add the promotion ID data: ${req.body.name} with description: ${req.body.description}`);
+        res.statusCode = 403;
+        res.end('POST operation not supported on /promotions/promotionId');
     })
     .put((req, res) => {
-        res.statusCode = 403;
-        res.end('PUT operation not supported on /promotions/promotionId');
+        res.end(`Will update the promotion ID data: ${req.body.name} with description: ${req.body.description}`);  
     })
     .delete((req, res) => {
-        res.end('Deleting data from specified promotion ID');
+        res.end(`Deleting data from promotion ${req.params.promotionId}`);
     });
 
 

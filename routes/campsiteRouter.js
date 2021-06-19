@@ -35,7 +35,7 @@ campsiteRouter.route('/:campsiteId')
     })
     .put((req, res) => {
         res.statusCode = 403;
-        res.end('PUT operation not supported on /campsites/:campsiteId');
+        res.end('PUT operation not supported on /campsites/campsiteId');
     })
     .delete((req, res) => {
         res.end('Deleting data from specified campsite ID');

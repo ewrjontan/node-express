@@ -32,9 +32,10 @@ promotionRouter.route('/:promotionId')
     })
     .post((req, res) => {
         res.statusCode = 403;
-        res.end('POST operation not supported on /promotions/promotionId');
+        res.end(`POST operation not supported on /promotions/${req.params.promotionId}`);
     })
     .put((req, res) => {
+        res.write(`Updating the partner: ${req.params.promotionId}\n`);
         res.end(`Will update the promotion ID data: ${req.body.name} with description: ${req.body.description}`);  
     })
     .delete((req, res) => {
